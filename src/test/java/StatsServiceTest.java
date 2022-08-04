@@ -47,6 +47,29 @@ public class StatsServiceTest {
         long expected = 15;
         long actual = service.avgMonthSales(sales);
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void countmoreavg() {
+        //продажи выше средних
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        StatsService service = new StatsService();
+
+        long expected = 5;
+        long actual = service.countmoreavg(sales);
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void countlessavg() {
+        //продажи выше средних
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        StatsService service = new StatsService();
+
+        long expected = 15;
+        long actual = service.avgMonthSales(sales);
+
+        Assertions.assertEquals(expected, actual);
+    }
 
 }

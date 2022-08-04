@@ -1,6 +1,8 @@
 package ru.netology.stats.javaqastats.services;
 
 
+import org.jetbrains.annotations.NotNull;
+
 public class StatsService {
 
     public int minSales(long[] sales) {
@@ -37,27 +39,32 @@ public class StatsService {
     public long sumMonthSales(long[] sales) {
         // сумма всех месяцев
         long sumMonth = 0;
-         for (long sale : sales) {
-             sumMonth += sale;
-        //for (long i = 0; i <= 12; i++) {
-          //  sumMonth += i + 1;
+        for (long sale : sales) {
+            sumMonth += sale;
+            //for (long i = 0; i <= 12; i++) {
+            //  sumMonth += i + 1;
         }
         return sumMonth;
     }
 
     public long avgMonthSales(long[] sales) {
+        //средние продажи в месяц
+        //      long sumMonth = 0;
+        //     long avgMonth = 0;
+        //    for (long i = 0; i <= 12; i++) {
+        //         sumMonth += i + 1;
+        //         avgMonth = sumMonth / 12;
 
         long sumMonth = 0;
-        long avgMonth = 0;
-        for (long i = 0; i < 12; i++) {
-            sumMonth += i + 1;
-            avgMonth = sumMonth / 12;
-
-        }
-        return avgMonth;
+        for (long sale : sales) {
+            sumMonth += sale;
     }
+    //     return avgMonth;
+        return sumMonth / 12;
+}
 
     public long countmoreavg(long[] sales) {
+        //продажи выше средних
 
         int count = 0;
         long avgMont = avgMonthSales(sales);
