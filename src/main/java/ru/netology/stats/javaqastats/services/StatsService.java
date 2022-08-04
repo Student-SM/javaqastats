@@ -58,18 +58,18 @@ public class StatsService {
         long sumMonth = 0;
         for (long sale : sales) {
             sumMonth += sale;
-    }
-    //     return avgMonth;
+        }
+        //     return avgMonth;
         return sumMonth / 12;
-}
+    }
 
     public long countmoreavg(long[] sales) {
-        //продажи выше средних
+        //кол-во месяцев,продажи выше средних
 
         int count = 0;
         long avgMont = avgMonthSales(sales);
         for (long sale : sales) {
-            if (sale > avgMonthSales(sales)) {
+            if (sale >= avgMonthSales(sales)) {
                 count++;
             }
         }
@@ -78,18 +78,16 @@ public class StatsService {
     }
 
     public long countlessavg(long[] sales) {
+        //кол-во месяцев продажи ниже средних в два раза
 
         int count = 0;
         long avgMont = avgMonthSales(sales) / 2;
         for (long sale : sales) {
-            if (sale < avgMonthSales(sales)) {
+            if (sale <= avgMont) {
                 count++;
+
             }
-            return count;
-
         }
-
-        return avgMont;
+        return count;
     }
-
 }

@@ -16,6 +16,7 @@ public class StatsServiceTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void maxMount() {
         //месяц с максимальными продажами
@@ -27,6 +28,7 @@ public class StatsServiceTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void sumMonth() {
         //сумма всех месяцев
@@ -36,8 +38,9 @@ public class StatsServiceTest {
         long expected = 8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18;
         long actual = service.sumMonthSales(sales);
 
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void avgMonth() {
         //средние продажи в месяц
@@ -49,25 +52,27 @@ public class StatsServiceTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void countmoreavg() {
-        //продажи выше средних
+        //кол-во месяцев,продажи выше средних
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
 
-        long expected = 5;
+        long expected = 7;
         long actual = service.countmoreavg(sales);
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void countlessavg() {
-        //продажи выше средних
+        //кол-во месяцев продажи ниже средних в два раза
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         StatsService service = new StatsService();
 
-        long expected = 15;
-        long actual = service.avgMonthSales(sales);
+        long expected = 1;
+        long actual = service.countlessavg(sales);
 
         Assertions.assertEquals(expected, actual);
     }
